@@ -5,9 +5,15 @@ from pytest import raises
 
 
 def test_version():
+    """
+    Tests whether the version of the package is as expected.
+    """
     assert __version__ == '0.1.0'
 
 def test_rotate_image():
+    """
+    Tests whether the method rotate_image works as expected.
+    """
     image1 = np.arange(18).reshape(3,2,3)
     image2 = np.arange(10).reshape(2,5)
     with raises(TypeError):
