@@ -1,14 +1,7 @@
-from paniz_image import __version__
 from paniz_image import paniz_image
 import numpy as np
 from pytest import raises
 
-
-def test_version():
-    """
-    Tests whether the version of the package is as expected.
-    """
-    assert __version__ == '0.1.0'
 
 def test_rotate_image():
     """
