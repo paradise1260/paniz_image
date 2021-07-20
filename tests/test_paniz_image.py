@@ -7,21 +7,21 @@ def test_rotate_image():
     """
     Tests whether the method rotate_image works as expected.
     """
-    image1 = np.arange(18).reshape(3,2,3)
-    image2 = np.arange(10).reshape(2,5)
+    image1 = np.arange(18).reshape(3, 2, 3)
+    image2 = np.arange(10).reshape(2, 5)
     with raises(TypeError):
-       paniz_image.rotate_image(image1, 2.1)
+        paniz_image.rotate_image(image1, 2.1)
     with raises(TypeError):
         paniz_image.rotate_image(4, 1)
     with raises(ValueError):
-        paniz_image.rotate_image(np.array([1,2]), 3)
-    
-    assert paniz_image.rotate_image(image1, 1).shape == (2,3,3)
-    assert paniz_image.rotate_image(image1, 2).shape == (3,2,3)
+        paniz_image.rotate_image(np.array([1, 2]), 3)
+
+    assert paniz_image.rotate_image(image1, 1).shape == (2, 3, 3)
+    assert paniz_image.rotate_image(image1, 2).shape == (3, 2, 3)
     assert type(paniz_image.rotate_image(image1, 3)) == np.ndarray
     assert paniz_image.rotate_image(image1, 6)[0].sum() == 87
 
     assert paniz_image.rotate_image(image2, 3).shape == (5, 2)
-    assert paniz_image.rotate_image(image2, 7).shape == (5,2)
+    assert paniz_image.rotate_image(image2, 7).shape == (5, 2)
     assert type(paniz_image.rotate_image(image2, 5)) == np.ndarray
     assert paniz_image.rotate_image(image2, 2)[0].sum() == 35
