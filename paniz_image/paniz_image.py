@@ -34,23 +34,27 @@ def rotate_image(img, rot_num=1):
     """
     # Handling errors:
     if type(rot_num) != int:
-        raise TypeError('Number of rotations has to be an integer!')
+        raise TypeError("Number of rotations has to be an integer!")
     if type(img) != np.ndarray:
-        raise TypeError('Please pass a numpy array representing an image!')
-    if len(img.shape) not in {2,3}:
-        raise ValueError('Your numpy array of image should have 2 or 3 dimensions!')
-    
+        raise TypeError("Please pass a numpy array representing an image!")
+    if len(img.shape) not in {2, 3}:
+        raise ValueError("Your image should have 2 or 3 dimensions!")
+
     # For a colored image:
     if len(img.shape) == 3:
         if rot_num == 0:
             return img
         else:
-            img = np.vstack(([img[:,i,:] for i in range(img.shape[1]-1, -1, -1)])).reshape(img.shape[1], img.shape[0], img.shape[2])
-            return rotate_image(img, rot_num-1)
+            img = np.vstack(
+                ([img[:, i, :] for i in range(img.shape[1] - 1, -1, -1)])
+            ).reshape(img.shape[1], img.shape[0], img.shape[2])
+            return rotate_image(img, rot_num - 1)
     # For a black and white image:
     else:
         if rot_num == 0:
             return img
         else:
-            img = np.vstack(([img[:,i] for i in range(img.shape[1]-1, -1, -1)])).reshape(img.shape[1], img.shape[0])
-            return rotate_image(img, rot_num-1)
+            img = np.vstack(
+                ([img[:, i] for i in range(img.shape[1] - 1, -1, -1)])
+            ).reshape(img.shape[1], img.shape[0])
+            return rotate_image(img, rot_num - 1)
