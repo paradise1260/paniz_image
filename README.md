@@ -15,7 +15,7 @@ $ pip install -i https://test.pypi.org/simple/ paniz_image
 
 ## Features
 
-- TODO
+
 
 ## Dependencies
 
