@@ -3,7 +3,8 @@ import numpy as np
 
 def rotate_image(img, rot_num=1):
     """
-    rotates the image counterclockwise for a given number of rotations like np.rot90(img)
+    rotates the image counterclockwise for a
+    given number of rotationslike np.rot90(img)
 
     Parameters
     ----------
